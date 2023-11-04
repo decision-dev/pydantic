@@ -1748,7 +1748,7 @@ class GenerateSchema:
                         metadata_js_function = getattr(GenerateJsonSchema, f"{source.__name__}_schema")
                     except AttributeError:
                         metadata_js_function = GenerateJsonSchema._schema_type_to_method.get(source.__name__)
-            else:
+            if metadata_js_function is not None:
                 pydantic_js_annotation_functions.append(metadata_js_function)
             return schema
 
