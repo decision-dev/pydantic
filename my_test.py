@@ -1,5 +1,10 @@
 """
-Trying to add some funcitonality to pydantic
+Trying to add some functionality to pydantic
+
+ipython -i my_test.py
+the breakpoint is right where you edited the code
+It doesn't seem to be doing anything...
+
 """
 
 from datetime import time
