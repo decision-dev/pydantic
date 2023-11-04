@@ -1641,6 +1641,7 @@ class GenerateSchema:
                 get_inner_schema, annotation, pydantic_js_annotation_functions
             )
 
+        breakpoint()
         schema = get_inner_schema(source_type)
         if pydantic_js_annotation_functions:
             metadata = CoreMetadataHandler(schema).metadata
@@ -1740,7 +1741,14 @@ class GenerateSchema:
             schema = self._apply_single_annotation_json_schema(schema, annotation)
 
             metadata_js_function = _extract_get_pydantic_json_schema(annotation, schema)
-            if metadata_js_function is not None:
+            if metadata_js_function is None:
+                if isinstance(source, type):
+                    from ..json_schema import GenerateJsonSchema
+                    try:
+                        metadata_js_function = getattr(GenerateJsonSchema, f"{source.__name__}_schema")
+                    except AttributeError:
+                        metadata_js_function = GenerateJsonSchema._schema_type_to_method.get(source.__name__)
+            else:
                 pydantic_js_annotation_functions.append(metadata_js_function)
             return schema
 
