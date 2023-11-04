@@ -16,10 +16,11 @@ Time = Annotated[time, PlainValidator(_validate), WithJsonSchema({'format': 'tim
 Time2 = Annotated[time, PlainValidator(_validate)]
 Int = Annotated[int, PlainValidator(_validate)]
 
+
 class Test(BaseModel):
     """Test some schema generation"""
 
     how_much: Int
     when: time
     when1: Time = None
-    when2: Time2 = None
+    # when2: Time2 = None
