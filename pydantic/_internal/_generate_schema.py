@@ -948,6 +948,7 @@ class GenerateSchema:
             if field_info.discriminator is not None:
                 schema = self._apply_annotations(source_type, annotations, transform_inner_schema=set_discriminator)
             else:
+                breakpoint()
                 schema = self._apply_annotations(
                     source_type,
                     annotations,
