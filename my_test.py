@@ -4,8 +4,8 @@ Trying to add some functionality to pydantic
 ipython -i my_test.py
 the breakpoint is right where you edited the code
 
-look at what oyu get
-it seems that oyu are applying the js_annotation_function one sceham too 'inner'
+look at what you get
+it seems that you are applying the js_annotation_function one sceham too 'inner'
 
 you need to see where the pydantic_js_function adn pydantic_js_annotaiton _functiona are called 
 
@@ -33,6 +33,6 @@ class Test(BaseModel):
 
     number: int
     how_much: Int
-    when: time
-    when1: Time = None
+    # when: time
+    # when1: Time = None
     # when2: Time2 = None

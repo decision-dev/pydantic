@@ -1745,7 +1745,7 @@ class GenerateSchema:
                 if isinstance(source, type):
                     from ..json_schema import GenerateJsonSchema
                     try:
-                        metadata_js_function = getattr(GenerateJsonSchema, f"{source.__name__}_schema")
+                        metadata_js_function = (lambda srce, handler: getattr(handler(srce), f"{source.__name__}_schema"))
                     except AttributeError:
                         metadata_js_function = GenerateJsonSchema._schema_type_to_method.get(source.__name__)
             if metadata_js_function is not None:

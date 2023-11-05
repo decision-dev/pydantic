@@ -908,6 +908,7 @@ class GenerateJsonSchema:
         self,
         schema: _core_utils.AnyFunctionSchema,
     ) -> JsonSchemaValue:
+        breakpoint()
         if _core_utils.is_function_with_inner_schema(schema):
             # This could be wrong if the function's mode is 'before', but in practice will often be right, and when it
             # isn't, I think it would be hard to automatically infer what the desired schema should be.
